@@ -1,0 +1,3 @@
+[submodule "packages/design-system/packages/design-system-tokens"]
+	path = packages/design-system/packages/design-system-tokens
+	url = https://github.com/jh-eunhee/design-system-draft

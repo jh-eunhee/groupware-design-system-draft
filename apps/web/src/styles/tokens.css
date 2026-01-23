@@ -1,0 +1,68 @@
+/* Auto-mapped subset of Figma tokens to CSS variables (RGB triplets for Tailwind v4 rgb(var(--...))) */
+/* Source: design-tokens.tokens.json */
+
+:root {
+  /* Colors */
+  --bg: 255 255 255;              /* gray.0 #FFFFFF */
+  --surface: 255 255 255;         /* cards/panels */
+  --fg: 0 35 76;                  /* gray.100 #00234C */
+  --muted: 109 120 130;           /* gray.50 #6D7882 */
+  --border: 206 213 219;          /* gray.20 #CED5DB */
+
+  /* Extended grayscale stops (optional) */
+  --gray-5: 244 245 246;          /* gray.5  #F4F5F6 */
+  --gray-10: 224 229 234;         /* gray.10 #E0E5EA */
+  --gray-20: 206 213 219;         /* gray.20 #CED5DB */
+  --gray-30: 174 185 194;         /* gray.30 #AEB9C2 */
+  --gray-40: 138 148 158;         /* gray.40 #8A949E */
+  --gray-50: 109 120 130;         /* gray.50 #6D7882 */
+
+  /* Brand primary (subset) */
+  --primary-60: 42 152 255;       /* primary.60 #2A98FF */
+  --primary-50: 103 182 255;      /* primary.50 #67B6FF */
+  --primary-40: 149 204 255;      /* primary.40 #95CCFF */
+
+  /* Radii (fallbacks, adjust if tokens provide specific radii) */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Shadows (fallbacks) */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Typography */
+:root {
+  --font-sans: "Pretendard", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Optional: Pretendard CDN (can be replaced with local files if provided) */
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2') format('woff2');
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "./base.json",
+  "display": "Node",
+  "compilerOptions": {
+    "lib": ["ES2020"]
+  }
+}

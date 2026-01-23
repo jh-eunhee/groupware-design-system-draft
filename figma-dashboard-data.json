@@ -1,0 +1,469 @@
+{
+  "variables": {
+    "colors": {
+      "primary": {
+        "90": "#004594",
+        "default": "#007bee"
+      },
+      "secondary": {
+        "30": "#aae8f1",
+        "pressed": "#84deea"
+      },
+      "text": {
+        "primary": "#131416",
+        "secondary": "#464c53",
+        "disabled": "#aeb9c2",
+        "action": "#007bee",
+        "white": "#ffffff",
+        "unselected": "#6d7882"
+      },
+      "background": {
+        "white": "#ffffff",
+        "gray_subtle": "#e0e5ea",
+        "gray_subtlest": "#f4f5f6"
+      },
+      "success": {
+        "5": "#edfff0",
+        "50": "#28cf47"
+      },
+      "button": {
+        "tertiary": {
+          "border_default": "#aeb9c2"
+        },
+        "secondary": {
+          "pressed": "#84deea"
+        }
+      },
+      "input": {
+        "border_default": "#ced5db"
+      },
+      "icon": {
+        "color50": "#58616a"
+      },
+      "gray": {
+        "0": "#ffffff",
+        "20": "#ced5db",
+        "30": "#aeb9c2"
+      },
+      "light": {
+        "gray": {
+          "0": "#fdfdfd",
+          "60": "#757b82",
+          "90": "#202225"
+        }
+      },
+      "alpha": {
+        "black5": "rgba(0,0,0,0.05)"
+      },
+      "surface": {
+        "80": "rgba(255,255,255,0.8)"
+      }
+    },
+    "spacing": {
+      "gap": {
+        "1": "2px",
+        "2": "4px"
+      },
+      "padding": {
+        "4": "8px",
+        "6": "12px"
+      },
+      "padding_card": {
+        "medium": "10px"
+      },
+      "padding_section": "32px",
+      "padding_card_content": "24px",
+      "gap_section": "24px"
+    },
+    "typography": {
+      "title": {
+        "xlarge": {
+          "fontSize": "56px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "67.2px",
+          "letterSpacing": "0"
+        },
+        "large": {
+          "fontSize": "48px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "57.6px",
+          "letterSpacing": "0"
+        },
+        "regular": {
+          "fontSize": "40px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "48px",
+          "letterSpacing": "0"
+        }
+      },
+      "subtitle": {
+        "large": {
+          "fontSize": "32px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "44px",
+          "letterSpacing": "0"
+        },
+        "regular": {
+          "fontSize": "24px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "1.2",
+          "letterSpacing": "0"
+        }
+      },
+      "body": {
+        "large": {
+          "fontSize": "20px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "1.2",
+          "letterSpacing": "0"
+        },
+        "regular": {
+          "fontSize": "16px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 400,
+          "lineHeight": "24px",
+          "letterSpacing": "0"
+        },
+        "regular_m": {
+          "fontSize": "16px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "1.2",
+          "letterSpacing": "0"
+        }
+      },
+      "element": {
+        "large": {
+          "fontSize": "14px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 400,
+          "lineHeight": "1.2",
+          "letterSpacing": "0"
+        },
+        "medium": {
+          "fontSize": "12px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 400,
+          "lineHeight": "16px",
+          "letterSpacing": "0"
+        },
+        "medium_m": {
+          "fontSize": "12px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "16px",
+          "letterSpacing": "0"
+        }
+      }
+    },
+    "borderRadius": {
+      "xxlarge": "12px",
+      "large": "8px",
+      "max": "1000px",
+      "small": "6px"
+    }
+  },
+  "components": {
+    "tag": {
+      "description": "상태 표시용 태그 컴포넌트",
+      "props": [
+        {
+          "name": "state",
+          "type": "enum",
+          "values": ["Default", "Active"],
+          "default": "Default",
+          "description": "태그의 상태"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "태그의 텍스트 레이블"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "description": "추가 CSS 클래스"
+        }
+      ],
+      "variants": {
+        "default": {
+          "backgroundColor": "transparent",
+          "textColor": "#131416"
+        },
+        "active": {
+          "backgroundColor": "#aae8f1",
+          "textColor": "#131416"
+        },
+        "success": {
+          "backgroundColor": "#edfff0",
+          "textColor": "#28cf47"
+        }
+      },
+      "styles": {
+        "container": {
+          "height": "24px",
+          "padding": "0 12px",
+          "borderRadius": "1000px",
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "whiteSpace": "nowrap"
+        },
+        "text": {
+          "fontSize": "12px",
+          "fontFamily": "Pretendard",
+          "fontWeight": 500,
+          "lineHeight": "16px",
+          "color": "#131416"
+        }
+      },
+      "code": "type TagProps = {\n  className?: string;\n  state?: 'Default' | 'Active';\n  label?: string;\n};\n\nfunction Tag({ className, state = 'Default', label = '온도' }: TagProps) {\n  const isActive = state === 'Active';\n  return (\n    <div className={className}>\n      <p className=\"font-medium text-xs leading-4\">\n        {label}\n      </p>\n    </div>\n  );\n}"
+    },
+    "statusBadge": {
+      "description": "상태 배지 컴포넌트 (정상/위험/경고)",
+      "variants": {
+        "success": {
+          "backgroundColor": "#edfff0",
+          "textColor": "#28cf47",
+          "label": "정상"
+        },
+        "active": {
+          "backgroundColor": "#edfff0",
+          "textColor": "#28cf47",
+          "label": "활성화"
+        }
+      },
+      "styles": {
+        "container": {
+          "height": "24px",
+          "padding": "0 8px",
+          "borderRadius": "1000px",
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "center"
+        },
+        "text": {
+          "fontSize": "12px",
+          "fontFamily": "Spoqa Han Sans Neo",
+          "fontWeight": 500,
+          "lineHeight": "16px"
+        }
+      }
+    },
+    "weatherCard": {
+      "description": "날씨 정보를 표시하는 카드 컴포넌트",
+      "sections": ["현재 날씨", "내일 날씨"],
+      "dataPoints": [
+        { "label": "온도", "value": "25°C" },
+        { "label": "습도", "value": "45%" },
+        { "label": "풍속", "value": "3.2m/s" }
+      ],
+      "styles": {
+        "container": {
+          "backgroundColor": "#f4f5f6",
+          "borderColor": "#ced5db",
+          "borderWidth": "1px",
+          "borderRadius": "6px",
+          "padding": "24px",
+          "flex": 1
+        },
+        "header": {
+          "fontSize": "16px",
+          "fontWeight": 500,
+          "color": "#464c53",
+          "marginBottom": "4px"
+        }
+      }
+    },
+    "dataCard": {
+      "description": "데이터를 표시하는 일반 카드 컴포넌트",
+      "styles": {
+        "container": {
+          "backgroundColor": "#ffffff",
+          "borderColor": "#aeb9c2",
+          "borderWidth": "1px",
+          "borderRadius": "12px",
+          "padding": "24px",
+          "gap": "24px"
+        },
+        "title": {
+          "fontSize": "20px",
+          "fontWeight": 500,
+          "color": "#131416",
+          "lineHeight": "1.2"
+        },
+        "subtitle": {
+          "fontSize": "16px",
+          "fontWeight": 500,
+          "color": "#464c53"
+        }
+      }
+    },
+    "heatmap": {
+      "description": "층별 차압을 시각화하는 히트맵 컴포넌트",
+      "layers": ["8F", "7F", "6F", "5F", "4F (중성대)", "3F", "2F", "1F"],
+      "colorScale": {
+        "safe": {
+          "dark": "#223e92",
+          "light": "rgba(34,62,146,0.45)"
+        },
+        "warning": {
+          "dark": "#b11e24",
+          "light": "rgba(177,30,36,0.45)"
+        },
+        "neutral": {
+          "borderColor": "#2bb469",
+          "backgroundColor": "#ffffff"
+        }
+      },
+      "styles": {
+        "barContainer": {
+          "height": "52.25px",
+          "width": "260px",
+          "padding": "0 24px",
+          "borderRadius": "6px",
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "space-between"
+        }
+      }
+    },
+    "pressureProfile": {
+      "description": "층별 압력 프로파일 차트",
+      "gridSize": "4x4",
+      "colorScheme": {
+        "safe": "#223e92",
+        "warning": "#b11e24"
+      }
+    },
+    "dataTable": {
+      "description": "층별 온도 데이터를 표시하는 테이블",
+      "columns": [
+        { "header": "층", "width": "100px" },
+        { "header": "실내 온도", "flex": 1 },
+        { "header": "통로 온도", "flex": 1 },
+        { "header": "실내/외 온도 차", "flex": 1 }
+      ],
+      "rows": 8,
+      "headerStyles": {
+        "backgroundColor": "rgba(0,0,0,0.05)",
+        "height": "40px",
+        "fontWeight": 500,
+        "fontSize": "12px"
+      },
+      "cellStyles": {
+        "backgroundColor": "rgba(255,255,255,0.8)",
+        "borderTopColor": "#aeb9c2",
+        "borderTopWidth": "0.5px",
+        "height": "56px",
+        "padding": "12px"
+      }
+    },
+    "lineChart": {
+      "description": "평균 기압/기온/습도 그래프",
+      "types": ["기압 (Pa)", "기온 (°C)", "습도 (%)"],
+      "timeRange": "10:00 - 15:00",
+      "lines": ["통로", "실내"],
+      "lineColors": {
+        "corridor": "#007bee",
+        "indoor": "#84deea"
+      }
+    },
+    "gnb": {
+      "description": "Global Navigation Bar 컴포넌트",
+      "sections": [
+        { "label": "로고 및 타이틀", "items": ["삼성물산 로고", "연돌 상태 모니터링 시스템"] },
+        { "label": "네비게이션", "items": ["대시보드", "데이터 이력 조회", "디바이스 관리"] },
+        { "label": "사용자 정보", "items": ["사용자명", "내 정보 버튼", "로그아웃 버튼"] }
+      ],
+      "styles": {
+        "container": {
+          "backgroundColor": "#fdfdfd",
+          "borderBottomColor": "#ced5db",
+          "borderBottomWidth": "1px",
+          "padding": "12px 120px",
+          "display": "flex",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "height": "65px"
+        }
+      }
+    }
+  },
+  "layoutStructure": {
+    "pageLayout": {
+      "width": "1920px",
+      "type": "full-width",
+      "sections": [
+        {
+          "name": "GNB",
+          "height": "65px",
+          "position": "fixed-top"
+        },
+        {
+          "name": "Header",
+          "height": "29px",
+          "content": ["페이지 제목", "마지막 업데이트 시간"]
+        },
+        {
+          "name": "Weather & Sensor",
+          "height": "249px",
+          "layout": "2 columns",
+          "items": ["날씨 카드", "실시간 차압 및 센서 정보"]
+        },
+        {
+          "name": "Pressure Data",
+          "height": "680px",
+          "layout": "3 columns",
+          "items": ["히트맵", "압력 프로파일", "상세 데이터 테이블"]
+        },
+        {
+          "name": "Charts",
+          "height": "426px",
+          "layout": "3 columns",
+          "items": ["기압 그래프", "기온 그래프", "습도 그래프"]
+        }
+      ]
+    },
+    "spacing": {
+      "sectionPadding": "32px",
+      "cardGap": "24px",
+      "contentPadding": "24px"
+    }
+  },
+  "assets": {
+    "icons": [
+      {
+        "name": "3dicons-sun-front-color",
+        "size": "40x40px",
+        "usage": "날씨 아이콘"
+      },
+      {
+        "name": "arrows-clockwise",
+        "size": "16x16px",
+        "usage": "새로고침 버튼"
+      }
+    ],
+    "images": [
+      {
+        "name": "logo",
+        "size": "85x16px",
+        "usage": "삼성물산 로고"
+      },
+      {
+        "name": "weather-icon",
+        "size": "40x40px",
+        "usage": "날씨 상태 아이콘"
+      }
+    ]
+  },
+  "designTokensFile": "design-tokens.tokens.json",
+  "figmaFileKey": "rRI5RbFDfeZV9X8wMdTcz9",
+  "dashboardFrameId": "19:4148"
+}
