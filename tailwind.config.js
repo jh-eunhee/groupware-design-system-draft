@@ -7,7 +7,93 @@ export default {
   theme: {
     extend: {
       colors: {
-        // ===== PRIMITIVE COLORS =====
+        // CSS Variables from design tokens
+        'text': {
+          'primary': 'var(--color-text-primary)',
+          'secondary': 'var(--color-text-secondary)',
+          'tertiary': 'var(--color-text-tertiary)',
+          'quaternary': 'var(--color-text-quaternary)',
+          'primary-inverse': 'var(--color-text-primary-inverse)',
+          'identity': 'var(--color-text-identity)',
+          'identity-strong': 'var(--color-text-identity-strong)',
+        },
+        'bg': {
+          'primary': 'var(--color-background-primary)',
+          'secondary': 'var(--color-background-secondary)',
+          'tertiary': 'var(--color-background-tertiary)',
+          'identity': 'var(--color-background-identity)',
+          'identity-subtle': 'var(--color-background-identity-subtle)',
+        },
+        'border': {
+          'primary': 'var(--color-border-primary)',
+          'secondary': 'var(--color-border-secondary)',
+          'tertiary': 'var(--color-border-tertiary)',
+          'identity': 'var(--color-border-identity)',
+        },
+        'button': {
+          'primary': 'var(--color-button-primary)',
+          'primary-hover': 'var(--color-button-primary-hover)',
+          'secondary': 'var(--color-button-secondary)',
+          'secondary-hover': 'var(--color-button-secondary-hover)',
+          'tertiary': 'var(--color-button-tertiary)',
+          'tertiary-hover': 'var(--color-button-tertiary-hover)',
+          'white': 'var(--color-button-white)',
+          'white-hover': 'var(--color-button-white-hover)',
+        },
+        'support': {
+          'success': 'var(--color-support-success)',
+          'success-subtle': 'var(--color-support-success-subtle)',
+          'error': 'var(--color-support-error)',
+          'error-subtle': 'var(--color-support-error-subtle)',
+          'info': 'var(--color-support-info)',
+          'info-subtle': 'var(--color-support-info-subtle)',
+          'brown': 'var(--color-support-brown)',
+          'yellow': 'var(--color-support-yellow)',
+        },
+        // Light gray palette
+        'light-gray': {
+          '5': 'var(--light-gray-5)',
+          '10': 'var(--light-gray-10)',
+          '20': 'var(--light-gray-20)',
+          '30': 'var(--light-gray-30)',
+          '40': 'var(--light-gray-40)',
+          '50': 'var(--light-gray-50)',
+          '60': 'var(--light-gray-60)',
+          '70': 'var(--light-gray-70)',
+          '80': 'var(--light-gray-80)',
+          '90': 'var(--light-gray-90)',
+          '95': 'var(--light-gray-95)',
+          '0': 'var(--light-gray-0)',
+        },
+        // Light primary palette
+        'light-primary': {
+          '5': 'var(--light-primary-5)',
+          '10': 'var(--light-primary-10)',
+          '20': 'var(--light-primary-20)',
+          '30': 'var(--light-primary-30)',
+          '40': 'var(--light-primary-40)',
+          '50': 'var(--light-primary-50)',
+          '60': 'var(--light-primary-60)',
+          '70': 'var(--light-primary-70)',
+          '80': 'var(--light-primary-80)',
+          '90': 'var(--light-primary-90)',
+          '95': 'var(--light-primary-95)',
+        },
+        // Light secondary palette
+        'light-secondary': {
+          '5': 'var(--light-secondary-5)',
+          '10': 'var(--light-secondary-10)',
+          '20': 'var(--light-secondary-20)',
+          '30': 'var(--light-secondary-30)',
+          '40': 'var(--light-secondary-40)',
+          '50': 'var(--light-secondary-50)',
+          '60': 'var(--light-secondary-60)',
+          '70': 'var(--light-secondary-70)',
+          '80': 'var(--light-secondary-80)',
+          '90': 'var(--light-secondary-90)',
+          '95': 'var(--light-secondary-95)',
+        },
+        // ===== PRIMITIVE COLORS (Legacy) =====
         // Primary color palette (11 levels - from light to dark)
         'primary': {
           '5': '#f2f9ff',

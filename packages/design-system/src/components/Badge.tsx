@@ -1,6 +1,7 @@
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '../utils/cn'
+import '../../design-tokens/build/css/variables.css'
 
 /**
  * Badge component with CVA pattern
