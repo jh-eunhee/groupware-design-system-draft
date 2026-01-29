@@ -209,3 +209,57 @@ export default async function AttendancePage() {
 독립성: 결재(Approval) 시스템 코드를 수정해도 근태(Attendance) 시스템 코드는 영향을 받지 않습니다.
 
 가독성: app/ 폴더를 열면 이 페이지에 어떤 큰 덩어리(Widgets)들이 있는지 한눈에 보이고, 세부 로직을 보고 싶으면 해당 features/ 폴더로 들어가면 됩니다.
+
+
+
+
+### **✅ 3. **비즈니스 로직의 파편화 해결 예시**
+
+
+프로젝트 초기엔 일정을 고려해 구현 위주로 작성하면서 features/attendance에 몰아넣었지만, 연차 데이터가 '근태관리', '인사정보', '급여계산' 등 여러 곳에서 쓰이기 시작하면 구조적 결단이 필요합니다.
+
+FSD(Feature-Sliced Design) 아키텍처와 시니어들의 실무 경험을 결합한 3단계 해결 전략을 제안해 드립니다.
+
+1. 1단계: Entities(엔티티) 레이어의 부활 (FSD 정석)
+지인분은 초기 효율을 위해 Entities를 Features에 통합하자고 하셨지만, 로직이 여기저기 쓰이기 시작한다면 이제 Entities를 분리할 타이밍입니다.
+
+Features: "연차를 신청한다", "연차를 승인한다" (동작/액션)
+
+Entities: "연차는 **[총량 - 사용량]**이다", "연차 데이터의 **구조(Type)**는 이렇다" (데이터/본질)
+
+src/entities/leave/ 폴더를 새로 만들고, 공통 로직을 여기로 옮깁니다. features/attendance와 features/payroll 모두가 이 entities/leave를 바라보게 하면 중복이 사라집니다.
+
+2. 2단계: 크로스-피처(Cross-Feature) 로직 처리
+만약 attendance 피처가 approval 피처의 로직을 알아야 하는 경우(예: 결재 승인 시점에 연차 차감), 절대 피처가 피처를 직접 참조하게 하지 마세요.
+
+해결책: **Widgets**이나 App 레이어에서 두 피처를 조합하거나, 상위 도메인 서비스(Shared의 상위 개념)로 추출합니다.
+
+실무 팁: Next.js 15의 Server Actions를 공통 함수로 빼서 src/shared/api/services 같은 곳에 두는 것도 빠른 일정을 위해 좋은 타협안입니다.
+
+3. 보완된 폴더 구조 (Entities 레이어 추가)
+Plaintext
+src/
+├── entities/                # [NEW] 도메인의 '본질'과 '공통 계산'만 모음
+│   └── leave/               
+│       ├── lib/             # calculateRemainingLeave (여기저기서 쓰는 순수 로직)
+│       ├── api/             # getLeaveBalance (DB에서 원본 데이터를 가져오는 공통 함수)
+│       └── types/           # LeaveInfo Interface
+│
+├── features/                # [동작] Entities의 로직을 가져다 씀
+│   ├── attendance-control/  # 출퇴근 버튼 + 연차 잔여량 체크 (Entities/leave 활용)
+│   ├── payroll-calculator/  # 급여 계산 시 미사용 연차 수당 계산 (Entities/leave 활용)
+│   └── leave-application/   # 실제 연차 기안서 작성 (Entities/leave 활용)
+│
+├── shared/                  # 비즈니스 색깔이 아예 없는 순수 유틸리티
+│   └── lib/                 # date-formatter, number-utils (순수 수학/날짜 계산)
+4. 시니어 개발자를 위한 "로직 이동" 체크리스트
+어디에 넣을지 헷갈린다면 딱 이 기준만 보세요.
+
+비즈니스 규칙인가? (예: 연차는 1년 넘어야 발생한다) → Entities
+
+단순 도구인가? (예: 날짜를 YYYY-MM-DD로 바꾼다) → Shared/lib
+
+특정 버튼을 눌렀을 때의 행동인가? (예: 신청 버튼 클릭 시 API 호출) → Features
+
+💡 정리하자면
+"여기저기서 쓰는 연차 계산 로직"은 더 이상 attendance만의 것이 아닙니다. **src/entities/leave/lib**으로 옮기는 것이 FSD의 정답입니다. 이렇게 하면 나중에 급여 시스템이나 인사 통계 시스템을 추가할 때 import { calculateLeave } from '@/entities/leave' 한 줄로 모든 게 해결됩니다.
