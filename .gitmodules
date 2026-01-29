@@ -3,4 +3,5 @@
 	url = git@github.com:jh-eunhee/design-system-draft.git
 [submodule "packages/design-tokens"]
 	path = packages/design-tokens
-	url = git@github.com:jh-eunhee/design-system-draft.git
+	url = git@github.com-work:jh-eunhee/design-tokens-draft.git
+	branch = main
