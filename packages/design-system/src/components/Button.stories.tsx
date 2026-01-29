@@ -1,118 +1,236 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from './Button'
+import Button from './Button'
+import { ArrowLeftIcon, ArrowRightIcon } from '../icons'
 
 const meta = {
-  title: 'Components/Button',
+  title: '컴포넌트/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
   argTypes: {
+    buttonType: {
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary'],
+      description: '버튼의 타입',
+    },
     variant: {
       control: 'select',
-      options: ['default', 'secondary', 'destructive', 'outline', 'ghost'],
-      description: '버튼의 스타일 종류',
+      options: ['solid', 'outline'],
+      description: '버튼의 스타일',
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['xsm', 'sm', 'md', 'lg'],
       description: '버튼의 크기',
     },
     disabled: {
       control: 'boolean',
       description: '버튼 비활성화 여부',
     },
-    onClick: { action: 'clicked' },
+    children: {
+      control: 'text',
+      description: '버튼 텍스트',
+    },
   },
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+// Primary (초록색) - Solid
+export const PrimarySolid: Story = {
   args: {
-    children: 'Button',
-    variant: 'default',
+    buttonType: 'primary',
+    variant: 'solid',
     size: 'md',
+    children: '버튼명',
   },
 }
 
-export const Secondary: Story = {
+// Primary (초록색) - Outline
+export const PrimaryOutline: Story = {
   args: {
-    children: 'Secondary',
-    variant: 'secondary',
-    size: 'md',
-  },
-}
-
-export const Destructive: Story = {
-  args: {
-    children: 'Delete',
-    variant: 'destructive',
-    size: 'md',
-  },
-}
-
-export const Outline: Story = {
-  args: {
-    children: 'Outline',
+    buttonType: 'primary',
     variant: 'outline',
     size: 'md',
+    children: '버튼명',
   },
 }
 
-export const Ghost: Story = {
+// Secondary (진회색) - Solid
+export const SecondarySolid: Story = {
   args: {
-    children: 'Ghost',
-    variant: 'ghost',
+    buttonType: 'secondary',
+    variant: 'solid',
     size: 'md',
+    children: '버튼명',
   },
 }
 
-export const Small: Story = {
+// Secondary (진회색) - Outline
+export const SecondaryOutline: Story = {
   args: {
-    children: 'Small',
-    variant: 'default',
+    buttonType: 'secondary',
+    variant: 'outline',
+    size: 'md',
+    children: '버튼명',
+  },
+}
+
+// Tertiary (연회색) - Solid
+export const TertiarySolid: Story = {
+  args: {
+    buttonType: 'tertiary',
+    variant: 'solid',
+    size: 'md',
+    children: '버튼명',
+  },
+}
+
+// Tertiary (연회색) - Outline
+export const TertiaryOutline: Story = {
+  args: {
+    buttonType: 'tertiary',
+    variant: 'outline',
+    size: 'md',
+    children: '버튼명',
+  },
+}
+
+// 크기 - xsm
+export const SizeXsm: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'xsm',
+    children: '버튼명',
+  },
+}
+
+// 크기 - sm
+export const SizeSm: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
     size: 'sm',
+    children: '버튼명',
   },
 }
 
-export const Large: Story = {
+// 크기 - md (기본값)
+export const SizeMd: Story = {
   args: {
-    children: 'Large',
-    variant: 'default',
-    size: 'lg',
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'md',
+    children: '버튼명',
   },
 }
 
+// 크기 - lg
+export const SizeLg: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'lg',
+    children: '버튼명',
+  },
+}
+
+// 비활성화
 export const Disabled: Story = {
   args: {
-    children: 'Disabled',
-    variant: 'default',
+    buttonType: 'primary',
+    variant: 'solid',
     size: 'md',
+    children: '버튼명',
     disabled: true,
   },
 }
 
-export const AllVariants: Story = {
+// 모든 크기 비교
+export const AllSizes: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
-      <Button variant="default">Default</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="destructive">Destructive</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <Button buttonType="primary" size="xsm">
+        xsm
+      </Button>
+      <Button buttonType="primary" size="sm">
+        sm
+      </Button>
+      <Button buttonType="primary" size="md">
+        md
+      </Button>
+      <Button buttonType="primary" size="lg">
+        lg
+      </Button>
     </div>
   ),
 }
 
-export const AllSizes: Story = {
+// 모든 타입 비교 (Solid)
+export const AllTypesSolid: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4 items-center">
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Button buttonType="primary" variant="solid">
+        Primary
+      </Button>
+      <Button buttonType="secondary" variant="solid">
+        Secondary
+      </Button>
+      <Button buttonType="tertiary" variant="solid">
+        Tertiary
+      </Button>
     </div>
   ),
+}
+
+// 모든 타입 비교 (Outline)
+export const AllTypesOutline: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <Button buttonType="primary" variant="outline">
+        Primary
+      </Button>
+      <Button buttonType="secondary" variant="outline">
+        Secondary
+      </Button>
+      <Button buttonType="tertiary" variant="outline">
+        Tertiary
+      </Button>
+    </div>
+  ),
+}
+
+// 아이콘 포함 - 좌측 아이콘
+export const WithLeftIcon: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'md',
+    children: '이전',
+    leftIcon: <ArrowLeftIcon />,
+  },
+}
+
+// 아이콘 포함 - 우측 아이콘
+export const WithRightIcon: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'md',
+    children: '다음',
+    rightIcon: <ArrowRightIcon />,
+  },
+}
+
+// 아이콘 포함 - 좌우 아이콘
+export const WithBothIcons: Story = {
+  args: {
+    buttonType: 'primary',
+    variant: 'solid',
+    size: 'md',
+    children: '선택',
+    leftIcon: <ArrowLeftIcon />,
+    rightIcon: <ArrowRightIcon />,
+  },
 }
