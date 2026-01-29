@@ -12,9 +12,11 @@
     "dev:web": "turbo run dev --filter=web-app",
     "build:design-system": "turbo run build --filter=@repo/design-system",
     "storybook:design-system": "turbo run storybook --filter=@repo/design-system",
+    "docs:design-system": "turbo run storybook dev --docs  --filter=@repo/design-system",
     "fetch:figma:config": "node scripts/fetch-figma-assets.mjs --config figma-assets.config.json",
     "fetch:figma": "node scripts/fetch-figma-assets.mjs",
-    "fetch:figma:auto": "node scripts/fetch-figma-assets.mjs --config figma-assets.config.json --auto"
+    "fetch:figma:auto": "node scripts/fetch-figma-assets.mjs --config figma-assets.config.json --auto",
+    "update-submodule": "git submodule update --remote --recursive"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

@@ -7,51 +7,73 @@ export default {
   theme: {
     extend: {
       colors: {
-        // CSS Variables from design tokens
+        // ===== GROUPWARE SEMANTIC COLORS (Primary) - from CSS Variables =====
+        // Text colors
         'text': {
-          'primary': 'var(--color-text-primary)',
-          'secondary': 'var(--color-text-secondary)',
-          'tertiary': 'var(--color-text-tertiary)',
-          'quaternary': 'var(--color-text-quaternary)',
-          'primary-inverse': 'var(--color-text-primary-inverse)',
-          'identity': 'var(--color-text-identity)',
-          'identity-strong': 'var(--color-text-identity-strong)',
+          'primary': 'var(--Color-Text-color-text-primary)',
+          'secondary': 'var(--Color-Text-color-text-secondary)',
+          'tertiary': 'var(--Color-Text-color-text-tertiary)',
+          'quaternary': 'var(--Color-Text-color-text-quaternary)',
+          'primary-inverse': 'var(--Color-Text-color-text-primary-inverse)',
+          'identity': 'var(--Color-Text-color-text-identity)',
+          'identity-strong': 'var(--Color-Text-color-text-identity-strong)',
         },
+        // Background colors
         'bg': {
-          'primary': 'var(--color-background-primary)',
-          'secondary': 'var(--color-background-secondary)',
-          'tertiary': 'var(--color-background-tertiary)',
-          'identity': 'var(--color-background-identity)',
-          'identity-subtle': 'var(--color-background-identity-subtle)',
+          'primary': 'var(--Color-Background-color-background-primary)',
+          'secondary': 'var(--Color-Background-color-background-secondary)',
+          'tertiary': 'var(--Color-Background-color-background-tertiary)',
+          'identity': 'var(--Color-Background-color-background-identity)',
+          'identity-subtle': 'var(--Color-Background-color-background-identity-subtle)',
         },
+        // Border colors
         'border': {
-          'primary': 'var(--color-border-primary)',
-          'secondary': 'var(--color-border-secondary)',
-          'tertiary': 'var(--color-border-tertiary)',
-          'identity': 'var(--color-border-identity)',
+          'primary': 'var(--Color-Border-color-border-primary)',
+          'secondary': 'var(--Color-Border-color-border-secondary)',
+          'tertiary': 'var(--Color-Border-color-border-tertiary)',
+          'identity': 'var(--Color-Border-color-border-identity)',
         },
+        // Button colors
         'button': {
-          'primary': 'var(--color-button-primary)',
-          'primary-hover': 'var(--color-button-primary-hover)',
-          'secondary': 'var(--color-button-secondary)',
-          'secondary-hover': 'var(--color-button-secondary-hover)',
-          'tertiary': 'var(--color-button-tertiary)',
-          'tertiary-hover': 'var(--color-button-tertiary-hover)',
-          'white': 'var(--color-button-white)',
-          'white-hover': 'var(--color-button-white-hover)',
+          'primary': 'var(--Color-Border-color-border-identity)',
+          'primary-hover': 'var(--Color-Button-color-button-primary-hover)',
+          'secondary': 'var(--Color-Button-color-button-secondary)',
+          'secondary-hover': 'var(--Color-Button-color-button-secondary-hover)',
+          'tertiary': 'var(--Color-Button-color-button-tertiary)',
+          'tertiary-hover': 'var(--Color-Button-color-button-tertiary-hover)',
+          'white': 'var(--Color-Button-color-button-white)',
+          'white-hover': 'var(--Color-Button-color-button-white-hover)',
         },
+        // Support/Status colors
         'support': {
-          'success': 'var(--color-support-success)',
-          'success-subtle': 'var(--color-support-success-subtle)',
-          'error': 'var(--color-support-error)',
-          'error-subtle': 'var(--color-support-error-subtle)',
-          'info': 'var(--color-support-info)',
-          'info-subtle': 'var(--color-support-info-subtle)',
-          'brown': 'var(--color-support-brown)',
-          'yellow': 'var(--color-support-yellow)',
+          'success': 'var(--Color-Support-color-support-success)',
+          'success-subtle': 'var(--Color-Support-color-support-success-subtle)',
+          'error': 'var(--Color-Support-color-support-error)',
+          'error-subtle': 'var(--Color-Support-color-support-error-subtle)',
+          'info': 'var(--Color-Support-color-support-info)',
+          'info-subtle': 'var(--Color-Support-color-support-info-subtle)',
+          'brown': 'var(--Color-Support-color-support-brown)',
+          'yellow': 'var(--Color-Support-color-support-yellow)',
         },
-        // Light gray palette
-        'light-gray': {
+
+        // ===== BADGE COLORS (Component-specific) =====
+        'badge-gray-bg': 'var(--Color-Background-color-background-tertiary)',
+        'badge-gray-text': 'var(--Color-Text-color-text-tertiary)',
+        'badge-green-bg': 'var(--Color-Support-color-support-success-subtle)',
+        'badge-green-text': 'var(--Color-Text-color-text-identity)',
+        'badge-blue-bg': 'var(--Color-Support-color-support-info-subtle)',
+        'badge-blue-text': 'var(--Color-Support-color-support-info)',
+        'badge-red-bg': 'var(--Color-Support-color-support-error-subtle)',
+        'badge-red-text': 'var(--Color-Support-color-support-error)',
+        'badge-yellow-bg': 'var(--Color-Support-color-support-yellow)',
+        'badge-yellow-text': 'var(--Color-Support-color-support-brown)',
+        'badge-black-bg': 'var(--Color-Button-color-button-secondary)',
+        'badge-black-text': 'var(--Color-Text-color-text-primary-inverse)',
+
+        // ===== PRIMITIVE COLORS (Light Mode) - from CSS Variables =====
+        // Gray palette (12 levels)
+        'gray': {
+          '0': 'var(--light-gray-0)',
           '5': 'var(--light-gray-5)',
           '10': 'var(--light-gray-10)',
           '20': 'var(--light-gray-20)',
@@ -63,9 +85,71 @@ export default {
           '80': 'var(--light-gray-80)',
           '90': 'var(--light-gray-90)',
           '95': 'var(--light-gray-95)',
-          '0': 'var(--light-gray-0)',
         },
-        // Light primary palette
+        // Primary palette (green - 11 levels)
+        'primary': {
+          '5': 'var(--light-primary-5)',
+          '10': 'var(--light-primary-10)',
+          '20': 'var(--light-primary-20)',
+          '30': 'var(--light-primary-30)',
+          '40': 'var(--light-primary-40)',
+          '50': 'var(--light-primary-50)',
+          '60': 'var(--light-primary-60)',
+          '70': 'var(--light-primary-70)',
+          '80': 'var(--light-primary-80)',
+          '90': 'var(--light-primary-90)',
+          '95': 'var(--light-primary-95)',
+        },
+        // Secondary palette (blue - 11 levels)
+        'secondary': {
+          '5': 'var(--light-secondary-5)',
+          '10': 'var(--light-secondary-10)',
+          '20': 'var(--light-secondary-20)',
+          '30': 'var(--light-secondary-30)',
+          '40': 'var(--light-secondary-40)',
+          '50': 'var(--light-secondary-50)',
+          '60': 'var(--light-secondary-60)',
+          '70': 'var(--light-secondary-70)',
+          '80': 'var(--light-secondary-80)',
+          '90': 'var(--light-secondary-90)',
+          '95': 'var(--light-secondary-95)',
+        },
+
+        // ===== ALPHA COLORS (Transparency) =====
+        'alpha': {
+          'white-100': 'var(--light-alpha-white100)',
+          'white-80': 'var(--light-alpha-white80)',
+          'white-60': 'var(--light-alpha-white60)',
+          'white-40': 'var(--light-alpha-white40)',
+          'white-20': 'var(--light-alpha-white20)',
+          'white-10': 'var(--light-alpha-white10)',
+          'white-5': 'var(--light-alpha-white5)',
+          'white-0': 'var(--light-alpha-white0)',
+          'black-100': 'var(--light-alpha-black100)',
+          'black-80': 'var(--light-alpha-black80)',
+          'black-60': 'var(--light-alpha-black60)',
+          'black-40': 'var(--light-alpha-black40)',
+          'black-20': 'var(--light-alpha-black20)',
+          'black-10': 'var(--light-alpha-black10)',
+          'black-5': 'var(--light-alpha-black5)',
+          'black-0': 'var(--light-alpha-black0)',
+        },
+
+        // ===== BACKWARD COMPATIBILITY ALIASES =====
+        'light-gray': {
+          '0': 'var(--light-gray-0)',
+          '5': 'var(--light-gray-5)',
+          '10': 'var(--light-gray-10)',
+          '20': 'var(--light-gray-20)',
+          '30': 'var(--light-gray-30)',
+          '40': 'var(--light-gray-40)',
+          '50': 'var(--light-gray-50)',
+          '60': 'var(--light-gray-60)',
+          '70': 'var(--light-gray-70)',
+          '80': 'var(--light-gray-80)',
+          '90': 'var(--light-gray-90)',
+          '95': 'var(--light-gray-95)',
+        },
         'light-primary': {
           '5': 'var(--light-primary-5)',
           '10': 'var(--light-primary-10)',
@@ -79,7 +163,6 @@ export default {
           '90': 'var(--light-primary-90)',
           '95': 'var(--light-primary-95)',
         },
-        // Light secondary palette
         'light-secondary': {
           '5': 'var(--light-secondary-5)',
           '10': 'var(--light-secondary-10)',
@@ -93,150 +176,19 @@ export default {
           '90': 'var(--light-secondary-90)',
           '95': 'var(--light-secondary-95)',
         },
-        // ===== PRIMITIVE COLORS (Legacy) =====
-        // Primary color palette (11 levels - from light to dark)
-        'primary': {
-          '5': '#f2f9ff',
-          '10': '#e5f3ff',
-          '20': '#d9edff',
-          '30': '#bbdeff',
-          '40': '#95ccff',
-          '50': '#67b6ff',
-          '60': '#2a98ff',
-          '70': '#007bee',      // main primary color
-          '80': '#0056b7',
-          '90': '#004594',      // primary-dark
-          '95': '#00336d',
-          '100': '#00234c'
-        },
-        // Gray color palette (13 levels)
-        'gray': {
-          '0': '#ffffff',
-          '5': '#f4f5f6',
-          '10': '#e0e5ea',
-          '20': '#ced5db',
-          '30': '#aeb9c2',
-          '40': '#8a949e',
-          '50': '#6d7882',
-          '60': '#58616a',
-          '70': '#464c53',
-          '80': '#33363d',
-          '90': '#1e2124',
-          '95': '#131416',      // text-primary
-          '100': '#000000'
-        },
-        // Secondary/Cyan color palette (11 levels)
-        'secondary': {
-          '5': '#f1fbfd',
-          '10': '#e0f7fa',
-          '20': '#c8f0f6',
-          '30': '#aae8f1',
-          '40': '#84deea',      // chart-secondary
-          '50': '#58d3e3',
-          '60': '#26c6da',
-          '70': '#15a6b8',
-          '80': '#088696',
-          '90': '#006774',
-          '95': '#004952',
-          '100': '#07272c'
-        },
-        // Success color palette (6 levels)
-        'success': {
-          '5': '#edfff0',
-          '10': '#c5ffcf',
-          '20': '#9dffaf',
-          '30': '#74ff8e',
-          '40': '#52f06f',
-          '50': '#28cf47'       // status-success
-        },
-        // Danger/Error color palette (6 levels)
-        'danger': {
-          '5': '#feeae5',
-          '10': '#ffbdbb',
-          '20': '#ff8f8c',
-          '30': '#ff625c',
-          '40': '#f0312b',
-          '50': '#ce1f19'       // status-error
-        },
-        // Warning/Caution color palette (6 levels)
-        'warning': {
-          '5': '#fffae5',
-          '10': '#fef4cb',
-          '20': '#fde598',
-          '30': '#fbd265',
-          '40': '#f7be3e',
-          '50': '#f4ab1e'
-        },
-        // ===== MODE COLORS (Component-level) =====
-        // Text colors
-        'text-primary': '#131416',    // gray.95
-        'text-secondary': '#464c53',  // gray.70
-        'text-unselected': '#6d7882', // gray.50
-        'text-disabled': '#aeb9c2',   // gray.30
-        'text-action': '#007bee',     // primary.70
-        'text-white': '#ffffff',      // gray.0
+
+        // ===== SEMANTIC SHORTCUTS =====
+        'status-success': 'var(--Color-Support-color-support-success)',
+        'status-error': 'var(--Color-Support-color-support-error)',
+        'status-info': 'var(--Color-Support-color-support-info)',
         
-        // Background colors
-        'bg-primary': '#ffffff',           // gray.0
-        'bg-secondary': '#f4f5f6',         // gray.5
-        'bg-tertiary': '#e0e5ea',         // gray.10
-        'bg-gray-subtle': '#e0e5ea',      // gray.10
-        'bg-gray-subtlest': '#f4f5f6',    // gray.5
-        
-        // Border colors
-        'border-default': '#ced5db',   // gray.20
-        'border-focused': '#8a949e',   // gray.40
-        'border-error': '#f0312b',     // danger.40
-        'border-disabled': '#e0e5ea',  // gray.10
-        
-        // Link colors
-        'link-default': '#007bee',     // primary.70
-        'link-disabled': '#aeb9c2',    // gray.30
-        
-        // Icon colors
-        'icon-50': '#58616a',          // gray.60
-        'icon-30': '#aeb9c2',          // gray.30
-        'icon-0': '#ffffff',           // gray.0
-        
-        // Input colors
-        'input-surface-default': '#ffffffcc',  // alpha.white80
-        'input-surface-disabled': '#0000000d', // alpha.black5
-        
-        // Shadow colors
-        'shadow-1': '#00336d14',   // 20% opacity
-        'shadow-2': '#00336d1f',   // 30% opacity
-        'shadow-3': '#00336d33',   // 50% opacity
-        
-        // Surface colors
-        'surface-80': '#ffffffcc', // alpha.white80
-        
-        // Button element colors
-        'button-element-default': '#007bee1a',      // primary + 10% opacity
-        'button-element-light-default': '#26c6da1a', // secondary + 10% opacity
-        
-        // ===== SEMANTIC COLORS =====
-        // Status indicators
-        'status-success': '#28cf47',
-        'status-warning': '#f39c12',
-        'status-error': '#b11e24',
-        'status-info': '#007bee',
-        
-        // Chart colors
-        'chart-primary': '#007bee',
-        'chart-secondary': '#84deea',
-        'chart-accent1': '#f39c12',
-        'chart-accent2': '#e74c3c',
-        'chart-neutral': '#95a5a6',
-        
-        // Pressure heatmap colors (8 levels)
-        'pressure-critical-low': '#223e92',   // coldest
-        'pressure-high-low': '#364b95',
-        'pressure-medium-low': '#565d87',
-        'pressure-neutral-zone': '#2bb469',
-        'pressure-neutral-white': '#ffffff',
-        'pressure-medium-high': '#8a5561',
-        'pressure-high': '#984558',
-        'pressure-critical-high': '#b11e24',  // hottest
+        'text-primary': 'var(--Color-Text-color-text-primary)',
+        'text-secondary': 'var(--Color-Text-color-text-secondary)',
+        'text-disabled': 'var(--Color-Text-color-text-quaternary)',
+        'bg-primary': 'var(--Color-Background-color-background-primary)',
+        'bg-secondary': 'var(--Color-Background-color-background-secondary)',
+        'border-default': 'var(--Color-Border-color-border-tertiary)',
+        'link-default': 'var(--Color-Border-color-border-identity)',
       },
       fontSize: {
         'xs': ['12px', { lineHeight: '16px' }],
@@ -247,6 +199,110 @@ export default {
         '2xl': ['24px', { lineHeight: '32px' }],
         '3xl': ['28px', { lineHeight: '36px' }],
         '4xl': ['32px', { lineHeight: '40px' }],
+
+        // Typography tokens from Figma Design System
+        // Heading
+        'heading-00': [
+          'var(--heading-00-fontsize, 24px)',
+          {
+            fontWeight: 'var(--heading-00-fontweight, 700)',
+            lineHeight: 'var(--heading-00-lineheight, 140%)',
+            letterSpacing: 'var(--heading-00-letterspacing, -0.5px)',
+          }
+        ],
+        'heading-01': [
+          'var(--heading-01-fontsize, 20px)',
+          {
+            fontWeight: 'var(--heading-01-fontweight, 600)',
+            lineHeight: 'var(--heading-01-lineheight, 140%)',
+            letterSpacing: 'var(--heading-01-letterspacing, -0.5px)',
+          }
+        ],
+        'heading-02': [
+          'var(--heading-02-fontsize, 18px)',
+          {
+            fontWeight: 'var(--heading-02-fontweight, 700)',
+            lineHeight: 'var(--heading-02-lineheight, 140%)',
+            letterSpacing: 'var(--heading-02-letterspacing, -0.5px)',
+          }
+        ],
+        'heading-03': [
+          'var(--heading-03-fontsize, 18px)',
+          {
+            fontWeight: 'var(--heading-03-fontweight, 600)',
+            lineHeight: 'var(--heading-03-lineheight, 140%)',
+            letterSpacing: 'var(--heading-03-letterspacing, -0.5px)',
+          }
+        ],
+        'heading-04': [
+          'var(--heading-04-fontsize, 16px)',
+          {
+            fontWeight: 'var(--heading-04-fontweight, 700)',
+            lineHeight: 'var(--heading-04-lineheight, 140%)',
+            letterSpacing: 'var(--heading-04-letterspacing, -0.5px)',
+          }
+        ],
+        'heading-05': [
+          'var(--heading-05-fontsize, 16px)',
+          {
+            fontWeight: 'var(--heading-05-fontweight, 600)',
+            lineHeight: 'var(--heading-05-lineheight, 140%)',
+            letterSpacing: 'var(--heading-05-letterspacing, -0.5px)',
+          }
+        ],
+
+        // Body
+        'body-01': [
+          'var(--body-01-fontsize, 14px)',
+          {
+            fontWeight: 'var(--body-01-fontweight, 700)',
+            lineHeight: 'var(--body-01-lineheight, 140%)',
+          }
+        ],
+        'body-02': [
+          'var(--body-02-fontsize, 14px)',
+          {
+            fontWeight: 'var(--body-02-fontweight, 600)',
+            lineHeight: 'var(--body-02-lineheight, 140%)',
+          }
+        ],
+        'body-03': [
+          'var(--body-03-fontsize, 14px)',
+          {
+            fontWeight: 'var(--body-03-fontweight, 500)',
+            lineHeight: 'var(--body-03-lineheight, 140%)',
+          }
+        ],
+        'body-04': [
+          'var(--body-04-fontsize, 14px)',
+          {
+            fontWeight: 'var(--body-04-fontweight, 400)',
+            lineHeight: 'var(--body-04-lineheight, 140%)',
+          }
+        ],
+
+        // Caption
+        'caption-01': [
+          'var(--caption-01-fontsize, 12px)',
+          {
+            fontWeight: 'var(--caption-01-fontweight, 600)',
+            lineHeight: 'var(--caption-01-lineheight, 140%)',
+          }
+        ],
+        'caption-02': [
+          'var(--caption-02-fontsize, 12px)',
+          {
+            fontWeight: 'var(--caption-02-fontweight, 500)',
+            lineHeight: 'var(--caption-02-lineheight, 140%)',
+          }
+        ],
+        'caption-03': [
+          'var(--caption-03-fontsize, 12px)',
+          {
+            fontWeight: 'var(--caption-03-fontweight, 400)',
+            lineHeight: 'var(--caption-03-lineheight, 140%)',
+          }
+        ],
       },
       fontFamily: {
         'pretendard': ['Pretendard', 'system-ui', 'sans-serif'],

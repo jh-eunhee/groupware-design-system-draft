@@ -9,10 +9,15 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    color: {
       control: 'select',
-      options: ['default', 'success', 'warning', 'error', 'info'],
+      options: ['gray', 'green', 'blue', 'red', 'yellow', 'black'],
       description: '배지의 색상 스타일',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: '배지의 크기 (sm: 12px, md: 14px, lg: 16px)',
     },
   },
 } satisfies Meta<typeof Badge>
@@ -20,78 +25,170 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+// ===== 개별 색상 스토리 =====
+export const Gray: Story = {
   args: {
-    children: 'Default',
-    variant: 'default',
+    children: 'Badge',
+    color: 'gray',
+    size: 'md',
   },
 }
 
-export const Success: Story = {
+export const Green: Story = {
   args: {
-    children: 'Success',
-    variant: 'success',
+    children: 'Badge',
+    color: 'green',
+    size: 'md',
   },
 }
 
-export const Warning: Story = {
+export const Blue: Story = {
   args: {
-    children: 'Warning',
-    variant: 'warning',
+    children: 'Badge',
+    color: 'blue',
+    size: 'md',
   },
 }
 
-export const Error: Story = {
+export const Red: Story = {
   args: {
-    children: 'Error',
-    variant: 'error',
+    children: 'Badge',
+    color: 'red',
+    size: 'md',
   },
 }
 
-export const Info: Story = {
+export const Yellow: Story = {
   args: {
-    children: 'Info',
-    variant: 'info',
+    children: 'Badge',
+    color: 'yellow',
+    size: 'md',
   },
 }
 
-export const AllVariants: Story = {
+export const Black: Story = {
+  args: {
+    children: 'Badge',
+    color: 'black',
+    size: 'md',
+  },
+}
+
+// ===== 크기별 스토리 =====
+export const SmallSize: Story = {
+  args: {
+    children: 'Badge',
+    color: 'gray',
+    size: 'sm',
+  },
+}
+
+export const MediumSize: Story = {
+  args: {
+    children: 'Badge',
+    color: 'gray',
+    size: 'md',
+  },
+}
+
+export const LargeSize: Story = {
+  args: {
+    children: 'Badge',
+    color: 'gray',
+    size: 'lg',
+  },
+}
+
+// ===== 조합 스토리 =====
+export const AllColors: Story = {
   render: () => (
     <div className="flex flex-wrap gap-3">
-      <Badge variant="default">Default</Badge>
-      <Badge variant="success">Success</Badge>
-      <Badge variant="warning">Warning</Badge>
-      <Badge variant="error">Error</Badge>
-      <Badge variant="info">Info</Badge>
+      <Badge color="gray">Badge</Badge>
+      <Badge color="green">Badge</Badge>
+      <Badge color="blue">Badge</Badge>
+      <Badge color="red">Badge</Badge>
+      <Badge color="yellow">Badge</Badge>
+      <Badge color="black">Badge</Badge>
     </div>
   ),
 }
 
-export const WithText: Story = {
+export const AllSizes: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-3">
-      <Badge variant="success">✓ Completed</Badge>
-      <Badge variant="warning">⚠ Pending</Badge>
-      <Badge variant="error">✕ Failed</Badge>
-      <Badge variant="info">ℹ New</Badge>
+    <div className="flex flex-wrap gap-3 items-center">
+      <Badge size="sm" color="gray">Badge</Badge>
+      <Badge size="md" color="gray">Badge</Badge>
+      <Badge size="lg" color="gray">Badge</Badge>
     </div>
   ),
 }
 
-export const InContext: Story = {
+export const ColorVariationsBySize: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-3 items-center">
+        <span className="text-sm font-medium text-gray-600 w-12">Small</span>
+        <Badge size="sm" color="gray">Badge</Badge>
+        <Badge size="sm" color="green">Badge</Badge>
+        <Badge size="sm" color="blue">Badge</Badge>
+        <Badge size="sm" color="red">Badge</Badge>
+        <Badge size="sm" color="yellow">Badge</Badge>
+        <Badge size="sm" color="black">Badge</Badge>
+      </div>
+      <div className="flex flex-wrap gap-3 items-center">
+        <span className="text-sm font-medium text-gray-600 w-12">Medium</span>
+        <Badge size="md" color="gray">Badge</Badge>
+        <Badge size="md" color="green">Badge</Badge>
+        <Badge size="md" color="blue">Badge</Badge>
+        <Badge size="md" color="red">Badge</Badge>
+        <Badge size="md" color="yellow">Badge</Badge>
+        <Badge size="md" color="black">Badge</Badge>
+      </div>
+      <div className="flex flex-wrap gap-3 items-center">
+        <span className="text-sm font-medium text-gray-600 w-12">Large</span>
+        <Badge size="lg" color="gray">Badge</Badge>
+        <Badge size="lg" color="green">Badge</Badge>
+        <Badge size="lg" color="blue">Badge</Badge>
+        <Badge size="lg" color="red">Badge</Badge>
+        <Badge size="lg" color="yellow">Badge</Badge>
+        <Badge size="lg" color="black">Badge</Badge>
+      </div>
+    </div>
+  ),
+}
+
+// ===== 실제 사용 사례 =====
+export const WithStatus: Story = {
   render: () => (
     <div className="space-y-3">
       <div className="flex items-center gap-2">
-        <span className="font-medium">Order Status:</span>
-        <Badge variant="success">Shipped</Badge>
+        <span className="text-sm font-medium">상태:</span>
+        <Badge color="green">진행 중</Badge>
       </div>
       <div className="flex items-center gap-2">
-        <span className="font-medium">Payment Status:</span>
-        <Badge variant="error">Failed</Badge>
+        <span className="text-sm font-medium">상태:</span>
+        <Badge color="blue">검토 필요</Badge>
       </div>
       <div className="flex items-center gap-2">
-        <span className="font-medium">System Status:</span>
-        <Badge variant="warning">Maintenance</Badge>
+        <span className="text-sm font-medium">상태:</span>
+        <Badge color="red">완료</Badge>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-medium">상태:</span>
+        <Badge color="yellow">대기 중</Badge>
+      </div>
+    </div>
+  ),
+}
+
+export const WithTags: Story = {
+  render: () => (
+    <div className="space-y-3">
+      <div className="flex flex-wrap gap-2">
+        <Badge color="blue">기술</Badge>
+        <Badge color="green">설계</Badge>
+        <Badge color="yellow">검토</Badge>
+        <Badge color="gray">아카이브</Badge>
       </div>
     </div>
   ),

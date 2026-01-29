@@ -8,5 +8,5 @@ export default defineConfig({
   shims: true,
   splitting: false,
   sourcemap: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', '@repo/design-tokens'],
 })
